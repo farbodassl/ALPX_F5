@@ -1,5 +1,5 @@
 ---
-- hosts: NWM-KUB01
+- hosts: OOI-AWX01
   become: true
   tasks:
   - name: Get Certificate
@@ -26,9 +26,9 @@
     F5_Cert_Name: alpacx.be
     files_loc: /opt/cert-store
     provider:
-     server: 172.16.200.245
-     user: "root"
-     password: "Nwmoes123!"
+     server: "{{server}}"
+     user: "{{user}}"
+     password: "{{password}}"
      server_port: 443
      validate_certs: "no"
   tasks:
@@ -37,7 +37,7 @@
     bigip_ssl_certificate:
       provider: "{{provider}}"
       name: "{{F5_Cert_Name}}"
-      content: "{{ hostvars['NWM-KUB01']['decoded_certificate'] }}"
+      content: "{{ hostvars['OOI-AWX01']['decoded_certificate'] }}"
     
 
   - name: SSL key upload
@@ -45,7 +45,7 @@
       provider: "{{provider}}"
       name: "{{F5_Cert_Name}}"
       state: present
-      content: "{{ hostvars['NWM-KUB01']['decoded_key'] }}"
+      content: "{{ hostvars['OOI-AWX01']['decoded_key'] }}"
 
   - name: Create a client SSL profile with a cert/key/chain setting
     bigip_profile_client_ssl:
