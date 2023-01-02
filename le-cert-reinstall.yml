@@ -1,5 +1,5 @@
 ---
-- hosts: NWM-KUB01
+- hosts: OOI-AWX01
   become: true
   tasks:
   - name: Get Certificate
@@ -18,7 +18,7 @@
     F5_Cert_Name: alpacx.be
     files_loc: /opt/cert-store
     provider:
-     server: 172.16.200.245
+     server: 172.16.200.115
      user: "root"
      password: "Nwmoes123!"
      server_port: 443
@@ -29,4 +29,4 @@
     bigip_ssl_certificate:
       provider: "{{provider}}"
       name: "{{F5_Cert_Name}}"
-      content: "{{ hostvars['NWM-KUB01']['decoded_certificate'] }}"
+      content: "{{ hostvars['OOI-AWX01']['decoded_certificate'] }}"
