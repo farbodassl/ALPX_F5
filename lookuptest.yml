@@ -1,0 +1,23 @@
+---
+- name: Test 
+  hosts: awx01
+  gather_facts: false
+  vars:
+    files_loc: /opt/cert-store
+
+  tasks:
+    - name: Create directory for certs directory
+      file:
+        path: "{{ files_loc }}"
+        state: directory
+        mode: '0755'
+        owner: administrator
+        group: administrator
+    - name: slurp remote file
+      ansible.builtin.slurp:
+        src: /opt/cert-store/test.txt
+      register: slurpfile
+
+    - name: print remote file
+      ansible.builtin.debug:
+        msg: "{{ slurpfile['content'] | b64decode }}"

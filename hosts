@@ -1,0 +1,31 @@
+[ubn-servers]
+NWM-UBN01 ansible_host=nwm-ubn01.alpacx.be
+NWM-UBN02 ansible_host=nwm-ubn02.alpacx.be
+NWM-NM01 ansible_host=nwm-nm01.alpacx.be
+NWM-AUTH01 ansible_host=nwm-auth01.alpacx.be
+[ubn-servers:vars]
+ansible_python_interpreter='/usr/bin/env python3'
+
+[awx01]
+NWM-KUB01 ansible_host=172.16.20.116
+[awx01:vars]
+ansible_python_interpreter='/usr/bin/env python3'
+
+[ios]
+NWM-SW01 ansible_host=nwm-sw01.alpacx.be
+[ios:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=cisco.ios.ios
+
+[nwm-win]
+NWM-SRV01 ansible_host=nwm-srv01.alpacx.be
+NWM-SRV02 ansible_host=nwm-srv02.alpacx.be
+[nwm-win:vars]
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=ntlm
+
+[f5]
+NWM-SG01 ansible_host=nwm-sg01.alpacx.be
+[f5:vars]
+validate_certs=no

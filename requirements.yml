@@ -1,0 +1,7 @@
+---
+collections:
+  - cisco.ios
+  - paloaltonetworks.panos
+  - f5networks.f5_modules
+  - community.crypto
+  - community.general
