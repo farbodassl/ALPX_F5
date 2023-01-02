@@ -7,7 +7,7 @@ NWM-AUTH01 ansible_host=nwm-auth01.alpacx.be
 ansible_python_interpreter='/usr/bin/env python3'
 
 [awx01]
-NWM-KUB01 ansible_host=172.16.20.116
+OOI-AWX01 ansible_host=172.17.20.117
 [awx01:vars]
 ansible_python_interpreter='/usr/bin/env python3'
 
@@ -26,6 +26,6 @@ ansible_winrm_server_cert_validation=ignore
 ansible_winrm_transport=ntlm
 
 [f5]
-NWM-SG01 ansible_host=nwm-sg01.alpacx.be
+OOI-SG01 ansible_host=ooi-sg01.alpacx.be
 [f5:vars]
 validate_certs=no
