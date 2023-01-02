@@ -2,6 +2,8 @@
 - name: create LE cert
   hosts: localhost
   gather_facts: false
+  sudo: true
+  sudo_user: fmoghimi
   #become: true
   #become_user: root
   vars:
