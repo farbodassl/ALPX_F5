@@ -14,11 +14,11 @@
     # private_key_csr is the key associated with the certificate for this site
     private_key_csr: "{{ files_loc }}/alpx-wildcard.key"
     # email used for cloudflare api
-    email: lander.feys@gmail.com
+    email: "{{ email }}"
     # domain the cert lives under
     dns_zone: alpacx.be
     # dns_key is your cloudflare api key
-    dns_key: f77c0f4f56893e2211ee3ca8cb90055567d8f
+    dns_key: "{{ dns_key }}"
   tasks:
 #  - debug:
 #      var: files_loc
@@ -41,7 +41,7 @@
       acme_version: 2
       acme_directory: https://acme-v02.api.letsencrypt.org/directory
       contact:
-      - mailto:admin@alpacx.be
+      - mailto: "{{ mailto }}"
 
   - name: Generate an OpenSSL Certificate Signing Request
     community.crypto.openssl_csr:
