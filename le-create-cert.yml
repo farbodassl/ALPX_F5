@@ -1,6 +1,6 @@
 ---
 - name: create LE cert
-  hosts: awx01
+  hosts: localhost
   gather_facts: false
 #  become: true
   vars:
