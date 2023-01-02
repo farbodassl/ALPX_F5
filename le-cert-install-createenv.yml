@@ -7,7 +7,7 @@
     F5_VIP_Name: www.alpacx.be
     files_loc: /opt/cert-store
     provider:
-     server: 172.16.200.245
+     server: 172.16.200.115
 #      user: admin
 #      password: supersecretPW
      user: "root"
@@ -19,7 +19,7 @@
   - name: Get Certificate
     slurp:
       src: /opt/cert-store/www.alpacx.be.crt
-      delegate_to: NWM-KUB01.alpacx.be
+      delegate_to: OOI-AWX01.alpacx.be
     register: certificate
     
 
@@ -27,7 +27,7 @@
     slurp:
       src: /opt/cert-store/www.alpacx.be.key
     register: key
-    delegate_to: NWM-KUB01.alpacx.be
+    delegate_to: OOI-AWX01.alpacx.be
 
 #SSL Upload and Modification of VIP to use New Certificate
   - name: SSL cert upload
