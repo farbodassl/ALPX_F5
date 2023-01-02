@@ -2,8 +2,8 @@
 - name: create LE cert
   hosts: localhost
   gather_facts: false
-  become: true
-  become_user: root
+  #become: true
+  #become_user: root
   vars:
     # site_dns is the DNS name you will be creating the cert for
     site_dns: "*.alpacx.be"
@@ -25,6 +25,7 @@
 #      var: files_loc
 
   - name: Generate Letsencrypt private key
+    become: yes
     community.crypto.openssl_privatekey:
       path: "{{ private_key_le }}"
       state: present
