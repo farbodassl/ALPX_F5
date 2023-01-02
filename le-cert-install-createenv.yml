@@ -7,11 +7,11 @@
     F5_VIP_Name: www.alpacx.be
     files_loc: /opt/cert-store
     provider:
-     server: 172.16.200.115
+     server: "{{provider}}"
 #      user: admin
 #      password: supersecretPW
-     user: "root"
-     password: "Nwmoes123!"
+     user: "{{user}}"
+     password: "{{password}}"
      server_port: 443
      validate_certs: "no"
 
