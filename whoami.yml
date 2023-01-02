@@ -1,3 +1,4 @@
-- name: Print current user
-  debug:
-    msg: "The current user is {{ ansible_user }}"
+- hosts: localhost
+  tasks:
+    - name: Print the actual user
+      command: whoami
