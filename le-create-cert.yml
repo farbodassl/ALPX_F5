@@ -2,10 +2,8 @@
 - name: create LE cert
   hosts: localhost
   gather_facts: false
-  sudo: true
-  sudo_user: fmoghimi
-  #become: true
-  #become_user: root
+  become: true
+  become_user: fmoghimi
   vars:
     # site_dns is the DNS name you will be creating the cert for
     site_dns: "*.alpacx.be"
