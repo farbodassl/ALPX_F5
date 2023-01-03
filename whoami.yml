@@ -1,4 +1,4 @@
 - hosts: localhost
   tasks:
     - name: Print the actual user
-      command: whoami
+      command: sudo whoami
