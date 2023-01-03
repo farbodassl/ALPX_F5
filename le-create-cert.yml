@@ -24,6 +24,7 @@
 
   - name: Generate Letsencrypt private key
     become: yes
+    become_user: root
     community.crypto.openssl_privatekey:
       path: "{{ private_key_le }}"
       state: present
