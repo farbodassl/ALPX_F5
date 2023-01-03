@@ -23,6 +23,7 @@
 #      var: files_loc
 
   - name: Generate Letsencrypt private key
+    become: yes
     community.crypto.openssl_privatekey:
       path: "{{ private_key_le }}"
       state: present
